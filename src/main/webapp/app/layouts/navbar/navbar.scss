@@ -1,0 +1,111 @@
+/* ==========================================================================
+Navbar
+========================================================================== */
+
+.navbar-version {
+    font-size: 10px;
+    color: #ccc;
+}
+
+.jh-navbar {
+    background-color: #353d47;
+    padding: 0.2em 1em;
+    .profile-image {
+        margin: -10px 0px;
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+    }
+    .dropdown-item.active,
+    .dropdown-item.active:focus,
+    .dropdown-item.active:hover {
+        background-color: #353d47;
+    }
+    .dropdown-toggle::after {
+        margin-left: 0.15em;
+    }
+    ul.navbar-nav {
+        padding: 0.5em;
+        .nav-item {
+            margin-left: 1.5rem;
+        }
+    }
+    a.nav-link {
+        font-weight: 400;
+    }
+    .jh-navbar-toggler {
+        color: #ccc;
+        font-size: 1.5em;
+        padding: 10px;
+        &:hover {
+            color: #fff;
+        }
+    }
+}
+
+@media screen and (min-width: 768px) {
+    .jh-navbar-toggler {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 992px) {
+    .jh-logo-container {
+        width: 100%;
+    }
+}
+
+.navbar-title {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+/* ==========================================================================
+Logo styles
+========================================================================== */
+.navbar-brand {
+    &.logo {
+        padding: 5px 15px;
+        .logo-img {
+            height: 45px;
+            width: 70px;
+            display: inline-block;
+            vertical-align: middle;
+            background: url('../../../content/images/logo-jhipster.png') no-repeat center center;
+            background-size: contain;
+        }
+    }
+}
+
+.bg-dark {
+    background-color: #759549 !important;
+}
+
+.navbar-dark .navbar-brand {
+    color: #fdd53c;
+}
+
+.navbar-dark .navbar-nav .show > .nav-link,
+.navbar-dark .navbar-nav .active > .nav-link,
+.navbar-dark .navbar-nav .nav-link.show,
+.navbar-dark .navbar-nav .nav-link.active {
+    color: #fdd53c;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+    color: #fdd63c67;
+}
+
+.jh-navbar[_ngcontent-c3] .jh-navbar-toggler[_ngcontent-c3] {
+    color: #fdd53c;
+}
+
+.dropdown-item {
+    color: #759549;
+}
+
+.jh-navbar[_ngcontent-c3] .dropdown-item.active[_ngcontent-c3],
+.jh-navbar[_ngcontent-c3] .dropdown-item.active[_ngcontent-c3]:focus,
+.jh-navbar[_ngcontent-c3] .dropdown-item.active[_ngcontent-c3]:hover {
+    background-color: #fdd53c;
+}

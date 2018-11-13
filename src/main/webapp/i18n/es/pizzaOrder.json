@@ -1,0 +1,26 @@
+{
+    "appApp": {
+        "pizzaOrder": {
+            "home": {
+                "title": "Pizza Orders",
+                "createLabel": "Crear nuevo Pizza Order",
+                "createOrEditLabel": "Crear o editar Pizza Order"
+            },
+            "created": "Un nuevo Pizza Order ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pizza Order ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pizza Order ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Pizza Order {{ id }}?"
+            },
+            "detail": {
+                "title": "Pizza Order"
+            },
+            "placedDate": "Placed Date",
+            "status": "Status",
+            "code": "Code",
+            "orderItem": "Order Item",
+            "invoice": "Invoice",
+            "customer": "Customer"
+        }
+    }
+}

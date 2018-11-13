@@ -1,0 +1,41 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pizzaOrder">
+            <h2><span jhiTranslate="appApp.pizzaOrder.detail.title">Pizza Order</span> {{pizzaOrder.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.pizzaOrder.placedDate">Placed Date</span></dt>
+                <dd>
+                    <span>{{pizzaOrder.placedDate}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizzaOrder.status">Status</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'appApp.OrderStatus.' + pizzaOrder.status}}">{{pizzaOrder.status}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizzaOrder.code">Code</span></dt>
+                <dd>
+                    <span>{{pizzaOrder.code}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizzaOrder.customer">Customer</span></dt>
+                <dd>
+                    <div *ngIf="pizzaOrder.customer">
+                        <a [routerLink]="['/customer', pizzaOrder.customer?.id, 'view']">{{pizzaOrder.customer?.email}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pizza-order', pizzaOrder.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

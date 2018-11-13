@@ -1,0 +1,9 @@
+{
+    "appApp": {
+        "PizzaType": {
+            "null": "",
+            "NORMAL": "NORMAL",
+            "FAMILY": "FAMILY"
+        }
+    }
+}

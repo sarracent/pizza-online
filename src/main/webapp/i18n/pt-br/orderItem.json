@@ -1,0 +1,25 @@
+{
+    "appApp": {
+        "orderItem": {
+            "home": {
+                "title": "Order Items",
+                "createLabel": "Criar novo Order Item",
+                "createOrEditLabel": "Criar ou editar Order Item"
+            },
+            "created": "Um novo Order Item foi criado com o identificador {{ param }}",
+            "updated": "Um Order Item foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Order Item foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Order Item {{ id }}?"
+            },
+            "detail": {
+                "title": "Order Item"
+            },
+            "quantity": "Quantity",
+            "totalPrice": "Total Price",
+            "status": "Status",
+            "pizza": "Pizza",
+            "order": "Order"
+        }
+    }
+}

@@ -1,0 +1,30 @@
+{
+    "appApp": {
+        "customer": {
+            "home": {
+                "title": "Customers",
+                "createLabel": "Crear nuevo Customer",
+                "createOrEditLabel": "Crear o editar Customer"
+            },
+            "created": "Un nuevo Customer ha sido creado con el identificador {{ param }}",
+            "updated": "Un Customer ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Customer ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Customer {{ id }}?"
+            },
+            "detail": {
+                "title": "Customer"
+            },
+            "firstName": "First Name",
+            "lastName": "Last Name",
+            "gender": "Gender",
+            "email": "Email",
+            "phone": "Phone",
+            "addressLine1": "Address Line 1",
+            "city": "City",
+            "country": "Country",
+            "user": "User",
+            "order": "Order"
+        }
+    }
+}

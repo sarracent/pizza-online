@@ -1,0 +1,108 @@
+<div>
+        <h2 id="page-heading">
+            <span jhiTranslate="appApp.pizza.home.title">Pizzas</span>
+            <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+            <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-pizza" [routerLink]="['/pizza/new']">
+                <fa-icon [icon]="'plus'"></fa-icon>
+                <span  jhiTranslate="appApp.pizza.home.createLabel">
+                Create new Pizza
+                </span>
+            </button>
+            </div>
+        </h2>
+        <jhi-alert></jhi-alert>
+        <br/>
+        <div *ngIf="pizzas">
+            <div class="list-group">
+                    <div class="mb-2 d-flex justify-content-end align-items-center">
+                            <span class="mr-2 col-2">Filtrar por nombre</span>
+                            <input type="search" class="form-control" [(ngModel)]="filter">
+                            <span class="mx-2 col-1">Ordenar Por</span>
+                            <div class="btn-group" role="group"
+                                jhiSort [(predicate)]="predicate" [(ascending)]="reverse"
+                                        [callback]="transition.bind(this)">
+                                <button type="button" class="btn btn-light" jhiSortBy="name">
+                                    <span jhiTranslate="appApp.pizza.name">Nombre</span>
+                                    <span class="fa fa-sort"></span>
+                                </button>
+                                <button type="button" class="btn btn-light" jhiSortBy="price">
+                                    <span jhiTranslate="appApp.pizza.price">Precio</span>
+                                    <span class="fa fa-sort"></span>
+                                </button>
+                                <button type="button" class="btn btn-light" jhiSortBy="pizzatype">
+                                    <span jhiTranslate="appApp.pizza.pizzatype">Tipo Pizza</span>
+                                    <span class="fa fa-sort"></span>
+                                </button>
+                                <button type="button" class="btn btn-light" 
+                                 jhiSortBy="pizzaCategory.id">
+                                    <span  
+                        jhiTranslate="appApp.pizza.pizzaCategory">Pizza Categoría</span>
+                                    <span class="fa fa-sort"></span>
+                                </button>
+                            </div>
+                    </div>
+                    <a [routerLink]="['/pizza', pizza.id, 'view' ]" 
+                       class="list-group-item list-group-item-action flex-column 
+                       align-items-start"
+                       *ngFor="let pizza of (pizzas | pureFilter:filter:'name');trackBy: trackId">
+                        <div class="row">
+                            <div class="col-2 col-xs-12 justify-content-center">
+                                <img [src]="'data:' + pizza.imageContentType + 
+                                ';base64,' + pizza.image" 
+                                style="max-height:150px;" alt="pizza image"/>
+                            </div>
+                            <div class="col col-xs-12">
+                                <div class="d-flex w-100 justify-content-between">
+                                    <h5 class="mb-1">{{pizza.name}}</h5>
+                                    <small *ngIf="pizza.pizzaCategory">
+                                        <a [routerLink]="['../pizza-category', pizza.pizzaCategory?.name, 'view' ]" >
+                                            {{pizza.pizzaCategory?.name}}
+                                        </a>
+                                    </small>
+                                </div>
+                                <small class="mb-1">{{pizza.description}}</small>
+                                <p class="mb-1">Precio: {{pizza.price | currency:'USD'}}</p>
+                                <small>
+                                    Tipo Pizza: 
+                                    <span jhiTranslate="{{'appApp.PizzaType.' + pizza.pizzatype}}">
+                                        {{pizza.pizzatype}}
+                                    </span>
+                                </small>
+                                <div *jhiHasAnyAuthority="'ROLE_ADMIN'">
+                                        <button type="submit"
+                                                [routerLink]="['/', 
+                                                    { outlets: { popup: 'pizza/'+ 
+                                                    pizza.id + '/edit'} }]"
+                                                replaceUrl="true"
+                                                queryParamsHandling="merge"
+                                                class="btn btn-primary btn-sm">
+                                            <span class="fa fa-pencil"></span>
+                                            <span class="d-none d-md-inline"
+                                                  jhiTranslate="entity.action.edit">Edit</span>
+                                        </button>
+                                        <button type="submit"
+                                                [routerLink]="['/', 
+                                                    { outlets: { popup: 'pizza/'+ 
+                                                     pizza.id + '/delete'} }]"
+                                                replaceUrl="true"
+                                                queryParamsHandling="merge"
+                                                class="btn btn-danger btn-sm">
+                                            <span class="fa fa-remove"></span>
+                                            <span class="d-none d-md-inline" 
+                                                  jhiTranslate="entity.action.delete">Delete</span>
+                                        </button>
+                                    </div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+        </div>
+        <div *ngIf="pizzas && pizzas.length">
+            <div class="row justify-content-center">
+                <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+            </div>
+            <div class="row justify-content-center">
+                <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+            </div>
+        </div>
+    </div>

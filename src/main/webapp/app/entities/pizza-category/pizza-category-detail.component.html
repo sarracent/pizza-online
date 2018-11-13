@@ -1,0 +1,31 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pizzaCategory">
+            <h2><span jhiTranslate="appApp.pizzaCategory.detail.title">Pizza Category</span> {{pizzaCategory.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.pizzaCategory.name">Name</span></dt>
+                <dd>
+                    <span>{{pizzaCategory.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizzaCategory.description">Description</span></dt>
+                <dd>
+                    <span>{{pizzaCategory.description}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pizza-category', pizzaCategory.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

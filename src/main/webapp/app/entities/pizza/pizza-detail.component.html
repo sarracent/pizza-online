@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="pizza">
+            <h2><span jhiTranslate="appApp.pizza.detail.title">Pizza</span> {{pizza.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="appApp.pizza.name">Name</span></dt>
+                <dd>
+                    <span>{{pizza.name}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizza.description">Description</span></dt>
+                <dd>
+                    <span>{{pizza.description}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizza.price">Price</span></dt>
+                <dd>
+                    <span>{{pizza.price}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizza.pizzatype">Pizzatype</span></dt>
+                <dd>
+                    <span jhiTranslate="{{'appApp.PizzaType.' + pizza.pizzatype}}">{{pizza.pizzatype}}</span>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizza.image">Image</span></dt>
+                <dd>
+                    <div *ngIf="pizza.image">
+                        <a (click)="openFile(pizza.imageContentType, pizza.image)">
+                            <img [src]="'data:' + pizza.imageContentType + ';base64,' + pizza.image" style="max-width: 100%;" alt="pizza image"/>
+                        </a>
+                        {{pizza.imageContentType}}, {{byteSize(pizza.image)}}
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="appApp.pizza.pizzaCategory">Pizza Category</span></dt>
+                <dd>
+                    <div *ngIf="pizza.pizzaCategory">
+                        <a [routerLink]="['/pizza-category', pizza.pizzaCategory?.id, 'view']">{{pizza.pizzaCategory?.name}}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/pizza', pizza.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

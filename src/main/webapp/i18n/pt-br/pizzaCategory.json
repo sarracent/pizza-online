@@ -1,0 +1,23 @@
+{
+    "appApp": {
+        "pizzaCategory": {
+            "home": {
+                "title": "Pizza Categories",
+                "createLabel": "Criar novo Pizza Category",
+                "createOrEditLabel": "Criar ou editar Pizza Category"
+            },
+            "created": "Um novo Pizza Category foi criado com o identificador {{ param }}",
+            "updated": "Um Pizza Category foi atualizado com o identificador {{ param }}",
+            "deleted": "Um Pizza Category foi deletado com o identificador {{ param }}",
+            "delete": {
+                "question": "Tem certeza de que deseja excluir Pizza Category {{ id }}?"
+            },
+            "detail": {
+                "title": "Pizza Category"
+            },
+            "name": "Name",
+            "description": "Description",
+            "pizza": "Pizza"
+        }
+    }
+}

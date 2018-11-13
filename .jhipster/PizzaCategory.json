@@ -1,0 +1,33 @@
+{
+    "name": "PizzaCategory",
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "description",
+            "fieldType": "String"
+        }
+    ],
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "pizza",
+            "otherEntityName": "pizza",
+            "otherEntityRelationshipName": "pizzaCategory"
+        }
+    ],
+    "changelogDate": "20181106081049",
+    "entityTableName": "pizza_category",
+    "dto": "no",
+    "pagination": "no",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false,
+    "fluentMethods": true,
+    "clientRootFolder": "",
+    "applications": "*"
+}

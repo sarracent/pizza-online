@@ -1,0 +1,41 @@
+{
+  "generator-jhipster": {
+    "promptValues": {
+      "packageName": "com.softplan.app",
+      "nativeLanguage": "es"
+    },
+    "jhipsterVersion": "5.6.0",
+    "applicationType": "monolith",
+    "baseName": "app",
+    "packageName": "com.softplan.app",
+    "packageFolder": "com/softplan/app",
+    "serverPort": "8080",
+    "authenticationType": "jwt",
+    "cacheProvider": "hazelcast",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "h2Disk",
+    "prodDatabaseType": "postgresql",
+    "searchEngine": false,
+    "messageBroker": false,
+    "serviceDiscoveryType": false,
+    "buildTool": "maven",
+    "enableSwaggerCodegen": false,
+    "jwtSecretKey": "ZTAyZmFiMmU3OWYxOThlMGNjOTMxMWJiYWYxZWEwZjBkMzQ0MmU3NDQzNGJmMWQyYmM5OWQ5YzNjYmNkNzNkODM4ZGYwM2E0N2NjODU0N2M0NThlMzJhMjU5NjRiNjQ5MTJmMjBhMzQ4YWZjODU0MTA5NDU1ZDNhNWQ0YmU0MTg=",
+    "clientFramework": "angularX",
+    "useSass": true,
+    "clientPackageManager": "npm",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "jhiPrefix": "jhi",
+    "enableTranslation": true,
+    "nativeLanguage": "es",
+    "languages": [
+      "es",
+      "pt-br",
+      "en"
+    ]
+  }
+}

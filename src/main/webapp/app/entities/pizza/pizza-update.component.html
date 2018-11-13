@@ -1,0 +1,96 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+            <h2 id="jhi-pizza-heading" jhiTranslate="appApp.pizza.home.createOrEditLabel">Create or edit a Pizza</h2>
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+                <div class="form-group" [hidden]="!pizza.id">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id"
+                        [(ngModel)]="pizza.id" readonly />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                        [(ngModel)]="pizza.name" required/>
+                    <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.description" for="field_description">Description</label>
+                    <input type="text" class="form-control" name="description" id="field_description"
+                        [(ngModel)]="pizza.description" />
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.price" for="field_price">Price</label>
+                    <input type="number" class="form-control" name="price" id="field_price"
+                        [(ngModel)]="pizza.price" required min="0" jhiMin="0"/>
+                    <div [hidden]="!(editForm.controls.price?.dirty && editForm.controls.price?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.price?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.price?.errors?.min" jhiTranslate="entity.validation.min" translateValues="{ min: 0 }">
+                            This field should be at least 0.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.controls.price?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.pizzatype" for="field_pizzatype">Pizzatype</label>
+                    <select class="form-control" name="pizzatype" [(ngModel)]="pizza.pizzatype" id="field_pizzatype"  required>
+                        <option value="NORMAL">{{'appApp.PizzaType.NORMAL' | translate}}</option>
+                        <option value="FAMILY">{{'appApp.PizzaType.FAMILY' | translate}}</option>
+                    </select>
+                    <div [hidden]="!(editForm.controls.pizzatype?.dirty && editForm.controls.pizzatype?.invalid)">
+                        <small class="form-text text-danger"
+                        [hidden]="!editForm.controls.pizzatype?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.image" for="field_image">Image</label>
+                    <div>
+                        <img [src]="'data:' + pizza.imageContentType + ';base64,' + pizza.image" style="max-height: 100px;" *ngIf="pizza.image" alt="pizza image"/>
+                        <div *ngIf="pizza.image" class="form-text text-danger clearfix">
+                            <span class="pull-left">{{pizza.imageContentType}}, {{byteSize(pizza.image)}}</span>
+                            <button type="button" (click)="clearInputImage('image', 'imageContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                                <fa-icon [icon]="'times'"></fa-icon>
+                            </button>
+                        </div>
+                        <input type="file" id="file_image" (change)="setFileData($event, pizza, 'image', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                    </div>
+                    <input type="hidden" class="form-control" name="image" id="field_image"
+                        [(ngModel)]="pizza.image" />
+                    <input type="hidden" class="form-control" name="imageContentType" id="field_imageContentType"
+                        [(ngModel)]="pizza.imageContentType" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="appApp.pizza.pizzaCategory" for="field_pizzaCategory">Pizza Category</label>
+                    <select class="form-control" id="field_pizzaCategory" name="pizzaCategory" [(ngModel)]="pizza.pizzaCategory" >
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="pizzaCategoryOption.id === pizza.pizzaCategory?.id ? pizza.pizzaCategory : pizzaCategoryOption" *ngFor="let pizzaCategoryOption of pizzacategories; trackBy: trackPizzaCategoryById">{{pizzaCategoryOption.name}}</option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary"  (click)="previousState()">
+                    <fa-icon [icon]="'ban'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+                <button type="submit" id="save-entity" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon [icon]="'save'"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

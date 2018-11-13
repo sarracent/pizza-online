@@ -1,0 +1,22 @@
+{
+    "home": {
+        "title": "Pizza Online",
+        "welcome": "Bienvenido!",
+        "welcomeWithName": "Bienvenido, {{name}}!",
+        "subtitle": "Mantén la calma y ama la pizza. &#128522;",
+        "menu": "Nuestro Menú",
+        "logged": {
+            "message": "Está conectado como \"{{username}}\"."
+        },
+        "question": "Si tiene preguntas sobre JHipster:",
+        "link": {
+            "homepage": "Página de inicio de JHipster",
+            "stackoverflow": "JHipster en Stack Overflow",
+            "bugtracker": "JHipster seguimiento de errores",
+            "chat": "Sala de chat pública de JHipster",
+            "follow": "contacto @java_hipster en Twitter"
+        },
+        "like": "Si te gusta JHipster, danos una estrella en",
+        "github": "GitHub"
+    }
+}

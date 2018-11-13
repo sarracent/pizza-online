@@ -1,0 +1,26 @@
+{
+    "appApp": {
+        "pizza": {
+            "home": {
+                "title": "Pizzas",
+                "createLabel": "Crear nuevo Pizza",
+                "createOrEditLabel": "Crear o editar Pizza"
+            },
+            "created": "Un nuevo Pizza ha sido creado con el identificador {{ param }}",
+            "updated": "Un Pizza ha sido actualizado con el identificador {{ param }}",
+            "deleted": "Un Pizza ha sido eliminado con el identificador {{ param }}",
+            "delete": {
+                "question": "¿Seguro que quiere eliminar Pizza {{ id }}?"
+            },
+            "detail": {
+                "title": "Pizza"
+            },
+            "name": "Name",
+            "description": "Description",
+            "price": "Price",
+            "pizzatype": "Pizzatype",
+            "image": "Image",
+            "pizzaCategory": "Pizza Category"
+        }
+    }
+}
