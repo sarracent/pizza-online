@@ -1,9 +1,6 @@
 # PIZZA ONLINE
 This application was generated using JHipster 5.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.6.0](https://www.jhipster.tech/documentation-archive/v5.6.0).
 
-# PIZZA ONLINE
-This application was generated using JHipster 5.6.0, you can find documentation and help at [https://www.jhipster.tech/documentation-archive/v5.6.0](https://www.jhipster.tech/documentation-archive/v5.6.0).
-
 Es una aplicación de comercio electrónico que gestiona pizzas, clientes, sus pedidos y facturas. Utilizará una base de datos Postgres en la producción y Angular del lado del cliente. La IU para el sitio web de compras será diferente de las funciones de back office, que solo estará disponible para los empleados que tienen un rol de administrador.
 
 EXPLICACIÓN DE LAS ENTIDADES:
